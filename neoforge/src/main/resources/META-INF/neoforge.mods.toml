@@ -12,6 +12,7 @@ description = '''
 The VM Chinese Translation Group mod is used to check Chinese localization patches and some other utility features.
 '''
 logoFile = "assets/${id}/icon.png"
+iconFile = "assets/${id}/icon.png"
 
 [[mixins]]
 config = "vmtu-neoforge.mixins.json"
