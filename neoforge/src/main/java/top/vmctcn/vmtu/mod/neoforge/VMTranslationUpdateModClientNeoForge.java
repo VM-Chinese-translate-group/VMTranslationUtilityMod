@@ -31,8 +31,6 @@ import java.nio.file.Path;
 
 @Mod(value = ModContexts.MOD_ID/*? if >=1.20.6 {*/, dist = Dist.CLIENT/*?}*/)
 public class VMTranslationUpdateModClientNeoForge {
-    private static final Minecraft client = Minecraft.getInstance();
-
     public VMTranslationUpdateModClientNeoForge(IEventBus modEventBus/*? if >=1.20.6 {*/, ModContainer modContainer/*?}*/) {
         //? if 1.20.4 {
         /*ModContainer modContainer = ModList.get().getModContainerById(ModContexts.MOD_ID).orElseThrow();
@@ -56,27 +54,29 @@ public class VMTranslationUpdateModClientNeoForge {
             });
 
             NeoForge.EVENT_BUS.addListener(RegisterClientCommandsEvent.class, event -> {
-                Player clientPlayer = client.player; // idk why need use client player
                 event.getDispatcher().register(
                         Commands.literal("vmtu")
                                 .then(Commands.literal("check").executes(context -> {
+                                    Player clientPlayer = Minecraft.getInstance().player;
                                     if (clientPlayer != null) {
-                                        ModEvents.checkTranslationUpdateCommand(context.getSource().getPlayer());
-                                        ModEvents.checkModpackUpdateCommand(context.getSource().getPlayer());
+                                        ModEvents.checkTranslationUpdateCommand(clientPlayer);
+                                        ModEvents.checkModpackUpdateCommand(clientPlayer);
                                         return Command.SINGLE_SUCCESS;
                                     } else {
                                         return 0;
                                     }
                                 }).then(Commands.literal("modpack").executes(context -> {
+                                    Player clientPlayer = Minecraft.getInstance().player;
                                     if (clientPlayer != null) {
-                                        ModEvents.checkModpackUpdateCommand(context.getSource().getPlayer());
+                                        ModEvents.checkModpackUpdateCommand(clientPlayer);
                                         return Command.SINGLE_SUCCESS;
                                     } else {
                                         return 0;
                                     }
                                 })).then(Commands.literal("translation").executes(context -> {
+                                    Player clientPlayer = Minecraft.getInstance().player;
                                     if (clientPlayer != null) {
-                                        ModEvents.checkTranslationUpdateCommand(context.getSource().getPlayer());
+                                        ModEvents.checkTranslationUpdateCommand(clientPlayer);
                                         return Command.SINGLE_SUCCESS;
                                     } else {
                                         return 0;
