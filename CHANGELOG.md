@@ -1,5 +1,11 @@
-# 5.3.1
+# 5.4.0
 
-## 修复
+## 新增
 
-- Neoforge 小概率可能崩溃
+- 支持自动启用文件夹格式的资源包
+
+---
+
+## Add
+
+- Supports resourcepacks that automatically enable folder formats
