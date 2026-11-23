@@ -1,11 +1,11 @@
-# 5.4.0
+# 5.4.1
 
-## 新增
+## 更改
 
-- 支持自动启用文件夹格式的资源包
+- 更新内置的CDN地址
 
 ---
 
-## Add
+## Changes
 
-- Supports resourcepacks that automatically enable folder formats
+- Updated the built-in CDN link
